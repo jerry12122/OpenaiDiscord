@@ -1,0 +1,9 @@
+version: "3.9"
+services:
+    openaidc:
+        build: .
+        container_name: openaidc
+        image: openaidc
+        restart: always
+        stdin_open: true
+        tty: true
