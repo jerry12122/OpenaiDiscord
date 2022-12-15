@@ -6,6 +6,7 @@ from dotenv import load_dotenv
 load_dotenv()
 DC_BOT_TOKEN = os.getenv('DC_BOT_TOKEN')
 OPENAI_API_KEY = os.getenv('OPENAI_API_KEY')
+DC_CHANNEL_ID = os.getenv('DC_CHANNEL_ID')
 
 # Set up the OpenAI API client
 openai.api_key = OPENAI_API_KEY
@@ -18,7 +19,7 @@ client = discord.Client(intents=intents)
 
 @client.event
 async def on_message(message):
-    if message.author == client.user or message.channel.id != 1052584808351539270:
+    if message.author == client.user or message.channel.id != DC_CHANNEL_ID:
         return
     print(message.content)
     # Use the OpenAI API to generate a response to the message
